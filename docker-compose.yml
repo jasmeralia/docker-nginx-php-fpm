@@ -1,0 +1,10 @@
+version: '2'
+services:
+  mt:
+    image: stormerider/docker-nginx-php-fpm
+    volumes:
+      - "./www:/usr/share/nginx/www/"
+      - "./nginx-logs:/var/log/nginx"
+    ports:
+      - "8010:80"
+    restart: always

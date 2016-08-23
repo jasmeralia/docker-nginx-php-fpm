@@ -8,6 +8,9 @@ RUN ln -sf /bin/true /sbin/initctl
 # Let the conatiner know that there is no tty
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN printf "deb http://nginx.org/packages/ubuntu/ trusty nginx\ndeb-src http://nginx.org/packages/ubuntu/ trusty nginx" >> /etc/apt/sources.list.d/nginx.list
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys ABF5BD827BD9BF62
+
 RUN apt-get update
 RUN apt-get -y upgrade
 
@@ -32,7 +35,8 @@ RUN sed -i -e "s/;catch_workers_output\s*=\s*yes/catch_workers_output = yes/g" /
 RUN find /etc/php5/cli/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;
 
 # nginx site conf
-ADD ./nginx-site.conf /etc/nginx/sites-available/default
+RUN rm /etc/nginx/conf.d/default.conf
+ADD ./nginx-site.conf /etc/nginx/conf.d/default.conf
 
 # Supervisor Config
 RUN /usr/bin/easy_install supervisor
