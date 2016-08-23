@@ -1,6 +1,8 @@
-# docker-wordpress-nginx
+# docker-nginx-php-fpm
 
-A Dockerfile that installs the latest wordpress, nginx, php-apc and php-fpm.
+A Dockerfile that installs the latest nginx, php-apc and php-fpm.
+
+Based off of [eugeneware](https://github.com/eugeneware/docker-wordpress-nginx)'s docker image for Wordpress and Nginx.
 
 NB: A big thanks to [jbfink](https://github.com/jbfink/docker-wordpress) who did most of the hard work on the wordpress parts!
 
@@ -12,15 +14,15 @@ The easiest way to get this docker image installed is to pull the latest version
 from the Docker registry:
 
 ```bash
-$ docker pull eugeneware/docker-wordpress-nginx
+$ docker pull stormerider/docker-nginx-php-fpm
 ```
 
 If you'd like to build the image yourself then:
 
 ```bash
-$ git clone https://github.com/eugeneware/docker-wordpress-nginx.git
-$ cd docker-wordpress-nginx
-$ sudo docker build -t="eugeneware/docker-wordpress-nginx" .
+$ git clone https://github.com/stormerider/docker-nginx-php-fpm.git
+$ cd docker-nginx-php-fpm
+$ sudo docker build -t="stormerider/docker-nginx-php-fpm" .
 ```
 
 ## Usage
@@ -28,21 +30,21 @@ $ sudo docker build -t="eugeneware/docker-wordpress-nginx" .
 To spawn a new instance of wordpress on port 80.  The -p 80:80 maps the internal docker port 80 to the outside port 80 of the host machine.
 
 ```bash
-$ sudo docker run -p 80:80 --name docker-wordpress-nginx -d eugeneware/docker-wordpress-nginx
+$ sudo docker run -p 80:80 --name docker-nginx-php-fpm -d stormerider/docker-nginx-php-fpm
 ```
 
 Start your newly created docker.
 
 ```
-$ sudo docker start docker-wordpress-nginx
+$ sudo docker start docker-nginx-php-fpm
 ```
 
-After starting the docker-wordpress-nginx check to see if it started and the port mapping is correct.  This will also report the port mapping between the docker container and the host machine.
+After starting the docker-nginx-php-fpm check to see if it started and the port mapping is correct.  This will also report the port mapping between the docker container and the host machine.
 
 ```
 $ sudo docker ps
 
-0.0.0.0:80 -> 80/tcp docker-wordpress-nginx
+0.0.0.0:80 -> 80/tcp docker-nginx-php-fpm
 ```
 
 You can the visit the following URL in a browser on your host machine to get started:
