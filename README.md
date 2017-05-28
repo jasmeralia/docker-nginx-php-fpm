@@ -1,5 +1,10 @@
 # docker-nginx-php-fpm
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/stormerider/docker-nginx-php-fpm.svg)][hub]
+[![Docker Stars](https://img.shields.io/docker/stars/stormerider/docker-nginx-php-fpm.svg)][hub]
+[![Docker Layers](https://images.microbadger.com/badges/image/stormerider/docker-nginx-php-fpm.svg)](https://microbadger.com/images/stormerider/docker-nginx-php-fpm "Get your own image badge on microbadger.com")
+[![Docker Version](https://images.microbadger.com/badges/version/stormerider/docker-nginx-php-fpm.svg)](https://microbadger.com/images/stormerider/docker-nginx-php-fpm "Get your own version badge on microbadger.com")
+
 A Dockerfile that installs the latest nginx, php-apc and php-fpm.
 
 Based off of [eugeneware](https://github.com/eugeneware/docker-wordpress-nginx)'s docker image for Wordpress and Nginx.
