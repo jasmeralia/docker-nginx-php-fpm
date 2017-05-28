@@ -27,6 +27,14 @@ RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 RUN echo "fastcgi_param  SCRIPT_FILENAME    \$document_root\$fastcgi_script_name;" >> /etc/nginx/fastcgi_params
 RUN echo "fastcgi_param  PATH_INFO          \$fastcgi_script_name;" >> /etc/nginx/fastcgi_params
 
+# Enable shell access for www-data user
+RUN /usr/bin/chsh -s /bin/bash www-data
+
+# Install WP CLI
+RUN curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp
+RUN chmod +x /usr/local/bin/wp
+RUN ln -s /usr/share/nginx/www /var/www
+
 # php-fpm config
 RUN sed -i -e "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/g" /etc/php5/fpm/php.ini
 RUN sed -i -e "s/upload_max_filesize\s*=\s*2M/upload_max_filesize = 100M/g" /etc/php5/fpm/php.ini
