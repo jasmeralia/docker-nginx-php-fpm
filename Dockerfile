@@ -7,7 +7,7 @@ ARG VCS_REF
 LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.vcs-url="https://github.com/stormerider/rancher-wpmu-nginx-trusty.git" \
       org.label-schema.vcs-ref=$VCS_REF \
-      org.label-schema.schema-version="1.0.4.7"
+      org.label-schema.schema-version="1.0.4.8"
 
 # Keep upstart from complaining
 RUN dpkg-divert --local --rename --add /sbin/initctl
@@ -55,8 +55,8 @@ RUN sed -i -e "s/;listen.mode\s*=\s0660/listen.mode = 0666/g" /etc/php5/fpm/pool
 RUN find /etc/php5/cli/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;
 
 # nginx site conf
-RUN rm /etc/nginx/conf.d/default.conf
-ADD ./config/nginx-site.conf /etc/nginx/conf.d/default.conf
+RUN rm /etc/nginx/sites-enabled/default.conf
+ADD ./config/nginx-site.conf /etc/nginx/sites-enabled/default
 
 # Supervisor Config
 RUN /usr/bin/easy_install supervisor
