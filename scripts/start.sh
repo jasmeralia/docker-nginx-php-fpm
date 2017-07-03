@@ -8,5 +8,9 @@ if [ -e '/newrelic.license' ] && [ -s '/newrelic.license' ]; then
   fi
 fi
 
+# Update all plugins and themes if WP is present
+su -c "/usr/local/bin/wp plugin update --all --path='/usr/share/nginx/www'" www-data
+su -c "/usr/local/bin/wp theme update --all --path='/usr/share/nginx/www'" www-data
+
 # start all the services
 /usr/local/bin/supervisord -n
