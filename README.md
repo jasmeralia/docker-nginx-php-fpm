@@ -1,7 +1,7 @@
 # docker-nginx-php-fpm
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/stormerider/docker-nginx-php-fpm.svg)][hub]
-[![Docker Stars](https://img.shields.io/docker/stars/stormerider/docker-nginx-php-fpm.svg)][hub]
+[![Docker Pulls](https://img.shields.io/docker/pulls/stormerider/docker-nginx-php-fpm.svg)](https://img.shields.io/docker/pulls/stormerider/docker-nginx-php-fpm.svg "Get your own image badge on shields.io")
+[![Docker Stars](https://img.shields.io/docker/stars/stormerider/docker-nginx-php-fpm.svg)](https://img.shields.io/docker/stars/stormerider/docker-nginx-php-fpm.svg "Get your own image badge on shields.io")
 [![Docker Layers](https://images.microbadger.com/badges/image/stormerider/docker-nginx-php-fpm.svg)](https://microbadger.com/images/stormerider/docker-nginx-php-fpm "Get your own image badge on microbadger.com")
 [![Docker Version](https://images.microbadger.com/badges/version/stormerider/docker-nginx-php-fpm.svg)](https://microbadger.com/images/stormerider/docker-nginx-php-fpm "Get your own version badge on microbadger.com")
 
