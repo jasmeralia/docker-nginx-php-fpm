@@ -55,7 +55,7 @@ RUN sed -i -e "s/;listen.mode\s*=\s0660/listen.mode = 0666/g" /etc/php5/fpm/pool
 RUN find /etc/php5/cli/conf.d/ -name "*.ini" -exec sed -i -re 's/^(\s*)#(.*)/\1;\2/g' {} \;
 
 # nginx site conf
-RUN rm /etc/nginx/sites-enabled/default.conf
+RUN rm /etc/nginx/sites-enabled/default
 ADD ./config/nginx-site.conf /etc/nginx/sites-enabled/default
 
 # Supervisor Config
